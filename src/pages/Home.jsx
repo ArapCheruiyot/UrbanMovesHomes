@@ -1,0 +1,29 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../css/home.css';
+
+const Home = () => {
+    return (
+        <>
+            {/* Hero Section */}
+            <section className="hero">
+                <div className="hero-content">
+                    <h1 className="hero-title">Find Homes. Move Smart. Live Better.</h1>
+                    <p className="hero-subtitle">
+                        House Moving • Vehicle Transport • Office Relocation • Packaging • Cleaning
+                    </p>
+                    <div className="hero-buttons">
+                        <Link to="/quote" className="btn btn-primary">
+                            Get Free Quote
+                        </Link>
+                        <a href="https://wa.me/254712345678" className="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                            💬 WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </>
+    );
+};
+
+export default Home;

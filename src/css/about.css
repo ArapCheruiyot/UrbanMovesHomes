@@ -1,0 +1,110 @@
+/* ========================================
+   ABOUT PAGE STYLES
+   ======================================== */
+
+.about-page {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* Header Section */
+.about-header {
+    text-align: center;
+    padding: 2rem 0;
+    border-bottom: 3px solid #f4a261;
+    margin-bottom: 2rem;
+}
+
+.about-header h1 {
+    font-size: 2.8rem;
+    color: #1a3c6e;
+    margin-bottom: 0.5rem;
+}
+
+.about-header p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Content Sections */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.about-story h2,
+.about-mission h2,
+.about-values h2 {
+    font-size: 1.8rem;
+    color: #1a3c6e;
+    margin-bottom: 0.8rem;
+}
+
+.about-story p {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+}
+
+.about-mission {
+    background-color: #f4f7fc;
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    border-left: 5px solid #f4a261;
+}
+
+.about-mission p {
+    color: #333;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+/* Values Grid */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.value-card {
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #eee;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.value-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.value-card h3 {
+    color: #1a3c6e;
+    margin-bottom: 0.3rem;
+}
+
+.value-card p {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-header h1 {
+        font-size: 2rem;
+    }
+    .about-header p {
+        font-size: 1rem;
+    }
+}
