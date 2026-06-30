@@ -16,7 +16,7 @@ const Home = () => {
                         <Link to="/quote" className="btn btn-primary">
                             Get Free Quote
                         </Link>
-                        <a href="https://wa.me/254712345678" className="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                        <a href="https://wa.me/+254114161000" className="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
                             💬 WhatsApp
                         </a>
                     </div>
