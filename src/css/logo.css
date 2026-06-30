@@ -4,7 +4,7 @@
     align-items: center;
 }
 
-/* Text logo — change font-size to control size */
+/* Text logo */
 .logo-text {
     color: #fff;
     font-size: 2.5rem;
@@ -19,80 +19,51 @@
 }
 
 /* ========================================
-   IMAGE LOGO — Adjust height to control size
+   IMAGE LOGO — CONTINUOUS SLOW SPIN
    ======================================== */
 
-/* Default image logo size — change the height value to resize */
 .logo-image {
-    height: 70px;              /* ← Increased from 45px to 70px — adjust as needed */
+    height: 80px;              /* ← Adjust to resize */
     width: auto;
     display: block;
+    cursor: pointer;
+    animation: spin-slow 10s linear infinite;  /* Continuous spin */
     transition: transform 0.3s ease;
 }
 
+/* Pause spin on hover (so users can see the logo clearly) */
 .logo-image:hover {
-    transform: scale(1.05);
+    animation-play-state: paused;
 }
 
-/* Utility sizes for quick changes */
-.logo-image-sm {
-    height: 45px;
-}
-
-.logo-image-md {
-    height: 60px;
-}
-
-.logo-image-lg {
-    height: 80px;
-}
-
-.logo-image-xl {
-    height: 100px;
+/* The slow spin animation */
+@keyframes spin-slow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* ========================================
-   RESPONSIVE — smaller on mobile
+   RESPONSIVE
    ======================================== */
 
 @media (max-width: 768px) {
+    .logo-image {
+        height: 65px;
+    }
     .logo-text {
         font-size: 1.8rem;
-    }
-    .logo-image {
-        height: 55px;          /* Smaller on tablets */
-    }
-    .logo-image-sm {
-        height: 35px;
-    }
-    .logo-image-md {
-        height: 45px;
-    }
-    .logo-image-lg {
-        height: 60px;
-    }
-    .logo-image-xl {
-        height: 75px;
     }
 }
 
 @media (max-width: 480px) {
+    .logo-image {
+        height: 55px;
+    }
     .logo-text {
         font-size: 1.4rem;
-    }
-    .logo-image {
-        height: 45px;          /* Even smaller on phones */
-    }
-    .logo-image-sm {
-        height: 30px;
-    }
-    .logo-image-md {
-        height: 38px;
-    }
-    .logo-image-lg {
-        height: 50px;
-    }
-    .logo-image-xl {
-        height: 60px;
     }
 }
