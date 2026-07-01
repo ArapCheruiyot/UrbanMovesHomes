@@ -1,9 +1,16 @@
 import React from 'react';
+import aboutHeroImage from '../assets/images/about-hero.jpg';    // Replace with your actual image name
+import teamImage from '../assets/images/team-working.jpg';       // Replace with your actual image name
 import '../css/about.css';
 
 const About = () => {
     return (
         <section className="about-page">
+            {/* Hero Image Section */}
+            <div className="about-hero">
+                <img src={aboutHeroImage} alt="Urban MoveHomes moving services" className="about-hero-image" />
+            </div>
+
             <div className="about-header">
                 <h1>About Urban MoveHomes</h1>
                 <p>We make moving simple, safe, and stress-free.</p>
@@ -56,6 +63,12 @@ const About = () => {
                             <p>Your satisfaction is our priority from start to finish.</p>
                         </div>
                     </div>
+                </div>
+
+                {/* Team / Behind the Scenes Image */}
+                <div className="about-team">
+                    <img src={teamImage} alt="Urban MoveHomes team at work" className="about-team-image" />
+                    <p className="about-team-caption">Our dedicated team making moves happen.</p>
                 </div>
             </div>
         </section>

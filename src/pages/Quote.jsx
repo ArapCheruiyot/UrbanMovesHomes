@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { db } from '../firebase';
+import { collection, addDoc } from 'firebase/firestore';
 import '../css/quote.css';
 
 const Quote = () => {
@@ -12,26 +14,43 @@ const Quote = () => {
         description: ''
     });
     const [submitted, setSubmitted] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // For now, just log the data (we will connect to Formspree later)
-        console.log('Quote request:', formData);
-        setSubmitted(true);
-        setFormData({
-            name: '',
-            phone: '',
-            email: '',
-            moving_date: '',
-            from_address: '',
-            to_address: '',
-            description: ''
-        });
-        setTimeout(() => setSubmitted(false), 5000);
+        setLoading(true);
+        setError('');
+
+        try {
+            // Save to Firebase Firestore
+            await addDoc(collection(db, 'quotes'), {
+                ...formData,
+                submitted_at: new Date().toISOString(),
+                status: 'pending'
+            });
+
+            setSubmitted(true);
+            setFormData({
+                name: '',
+                phone: '',
+                email: '',
+                moving_date: '',
+                from_address: '',
+                to_address: '',
+                description: ''
+            });
+            setTimeout(() => setSubmitted(false), 5000);
+        } catch (err) {
+            console.error('Firebase Error:', err);
+            setError('Failed to submit quote. Please try again.');
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -44,6 +63,12 @@ const Quote = () => {
             {submitted && (
                 <div className="success-message">
                     ✅ Thank you! We will contact you within 24 hours.
+                </div>
+            )}
+
+            {error && (
+                <div className="error-message">
+                    ❌ {error}
                 </div>
             )}
 
@@ -110,7 +135,9 @@ const Quote = () => {
                     required
                 />
 
-                <button type="submit">Send Quote Request</button>
+                <button type="submit" disabled={loading}>
+                    {loading ? 'Sending...' : 'Send Quote Request'}
+                </button>
             </form>
 
             <p className="quote-footer">
