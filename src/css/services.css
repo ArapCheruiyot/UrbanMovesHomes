@@ -3,7 +3,7 @@
    ======================================== */
 
 .services-page {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 2rem auto;
     padding: 0 2rem;
 }
@@ -30,7 +30,7 @@
 
 .service-item {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 1.5rem;
     background-color: #f9f9f9;
     padding: 1.5rem;
@@ -44,8 +44,11 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.service-item .service-icon {
-    font-size: 2.5rem;
+.service-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
     flex-shrink: 0;
 }
 
@@ -60,10 +63,15 @@
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .service-item {
         flex-direction: column;
         align-items: center;
         text-align: center;
+    }
+    .service-image {
+        width: 100%;
+        max-width: 300px;
+        height: 200px;
     }
 }
