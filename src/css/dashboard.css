@@ -5,33 +5,33 @@
 .dashboard {
     max-width: 1200px;
     margin: 2rem auto;
-    padding: 0 2rem;
+    padding: 0 1rem;
 }
 
 .dashboard h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #1a3c6e;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
-/* Stats */
+/* Stats — mobile first */
 .stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
 }
 
 .stat-card {
     background-color: #f9f9f9;
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: 8px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .stat-number {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: #1a3c6e;
     display: block;
@@ -39,7 +39,7 @@
 
 .stat-label {
     color: #666;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .stat-card.pending .stat-number { color: #f4a261; }
@@ -49,20 +49,23 @@
 /* Filter Bar */
 .filter-bar {
     display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
     flex-wrap: wrap;
 }
 
 .filter-bar button {
-    padding: 0.5rem 1.2rem;
+    padding: 0.4rem 0.8rem;
     border: 2px solid #1a3c6e;
     background: transparent;
     color: #1a3c6e;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 0.8rem;
     transition: all 0.3s;
+    flex: 1;
+    min-width: 60px;
 }
 
 .filter-bar button:hover {
@@ -86,7 +89,8 @@
 table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    min-width: 600px;
 }
 
 thead {
@@ -94,7 +98,7 @@ thead {
 }
 
 th, td {
-    padding: 1rem;
+    padding: 0.7rem 0.5rem;
     text-align: left;
     border-bottom: 1px solid #eee;
 }
@@ -110,10 +114,12 @@ tr:hover {
 
 /* Status Badge */
 .status-badge {
-    padding: 0.3rem 0.8rem;
+    padding: 0.2rem 0.6rem;
     border-radius: 20px;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: bold;
+    display: inline-block;
+    white-space: nowrap;
 }
 
 .status-pending {
@@ -133,12 +139,13 @@ tr:hover {
 
 /* Actions Buttons */
 td button {
-    padding: 0.3rem 0.7rem;
+    padding: 0.2rem 0.5rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 0.8rem;
-    margin-right: 0.3rem;
+    font-size: 0.7rem;
+    margin-right: 0.2rem;
+    white-space: nowrap;
 }
 
 .btn-contact {
@@ -161,7 +168,7 @@ td button {
 
 .btn-delete {
     background: transparent;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .no-data {
@@ -176,4 +183,85 @@ td button {
     font-size: 1.2rem;
     color: #666;
     padding: 3rem;
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .dashboard {
+        padding: 0 0.8rem;
+    }
+
+    .dashboard h1 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    .stat-card {
+        padding: 0.8rem;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+    }
+
+    .filter-bar button {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+        flex: 1 1 auto;
+    }
+
+    table {
+        font-size: 0.75rem;
+        min-width: 500px;
+    }
+
+    th, td {
+        padding: 0.5rem 0.3rem;
+    }
+
+    td button {
+        font-size: 0.6rem;
+        padding: 0.15rem 0.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.4rem;
+    }
+
+    .stat-number {
+        font-size: 1.3rem;
+    }
+
+    table {
+        font-size: 0.7rem;
+        min-width: 400px;
+    }
+
+    th, td {
+        padding: 0.4rem 0.2rem;
+    }
+
+    .filter-bar {
+        gap: 0.3rem;
+    }
+
+    .filter-bar button {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.5rem;
+    }
 }
