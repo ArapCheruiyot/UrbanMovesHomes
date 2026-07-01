@@ -7,6 +7,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Quote from './pages/Quote';
+import Dashboard from './pages/Dashboard'; // 👈 Add this import
 import './css/style.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
                     <Route path="/services" element={<Services />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/quote" element={<Quote />} />
+                    <Route path="/dashboard" element={<Dashboard />} /> {/* 👈 Add this route */}
                 </Routes>
             </main>
             <Footer />
