@@ -1,0 +1,69 @@
+/* Logo Styles */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+/* Text logo */
+.logo-text {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.logo-text:hover {
+    color: #f4a261;
+}
+
+/* ========================================
+   IMAGE LOGO — CONTINUOUS SLOW SPIN
+   ======================================== */
+
+.logo-image {
+    height: 80px;              /* ← Adjust to resize */
+    width: auto;
+    display: block;
+    cursor: pointer;
+    animation: spin-slow 10s linear infinite;  /* Continuous spin */
+    transition: transform 0.3s ease;
+}
+
+/* Pause spin on hover (so users can see the logo clearly) */
+.logo-image:hover {
+    animation-play-state: paused;
+}
+
+/* The slow spin animation */
+@keyframes spin-slow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .logo-image {
+        height: 65px;
+    }
+    .logo-text {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-image {
+        height: 55px;
+    }
+    .logo-text {
+        font-size: 1.4rem;
+    }
+}
