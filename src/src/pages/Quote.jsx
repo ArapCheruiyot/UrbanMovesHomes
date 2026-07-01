@@ -10,7 +10,11 @@ const Quote = () => {
         email: '',
         moving_date: '',
         from_address: '',
+        from_lat: '',
+        from_lng: '',
         to_address: '',
+        to_lat: '',
+        to_lng: '',
         description: ''
     });
     const [submitted, setSubmitted] = useState(false);
@@ -21,13 +25,54 @@ const Quote = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    // Get current location for "From" address
+    const getFromLocation = () => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    setFormData({
+                        ...formData,
+                        from_lat: position.coords.latitude,
+                        from_lng: position.coords.longitude
+                    });
+                    alert('Location captured successfully!');
+                },
+                (error) => {
+                    alert('Unable to get location. Please enter your address manually.');
+                }
+            );
+        } else {
+            alert('Geolocation is not supported by this browser.');
+        }
+    };
+
+    // Get current location for "To" address
+    const getToLocation = () => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    setFormData({
+                        ...formData,
+                        to_lat: position.coords.latitude,
+                        to_lng: position.coords.longitude
+                    });
+                    alert('Location captured successfully!');
+                },
+                (error) => {
+                    alert('Unable to get location. Please enter your address manually.');
+                }
+            );
+        } else {
+            alert('Geolocation is not supported by this browser.');
+        }
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
         setError('');
 
         try {
-            // Save to Firebase Firestore
             await addDoc(collection(db, 'quotes'), {
                 ...formData,
                 submitted_at: new Date().toISOString(),
@@ -41,7 +86,11 @@ const Quote = () => {
                 email: '',
                 moving_date: '',
                 from_address: '',
+                from_lat: '',
+                from_lng: '',
                 to_address: '',
+                to_lat: '',
+                to_lng: '',
                 description: ''
             });
             setTimeout(() => setSubmitted(false), 5000);
@@ -76,7 +125,7 @@ const Quote = () => {
                 <input
                     type="text"
                     name="name"
-                    placeholder="Full Name *"
+                    placeholder="Name *"
                     value={formData.name}
                     onChange={handleChange}
                     required
@@ -108,23 +157,35 @@ const Quote = () => {
                     required
                 />
 
-                <input
-                    type="text"
-                    name="from_address"
-                    placeholder="From Address *"
-                    value={formData.from_address}
-                    onChange={handleChange}
-                    required
-                />
+                {/* From Address */}
+                <div className="location-group">
+                    <input
+                        type="text"
+                        name="from_address"
+                        placeholder="From Address *"
+                        value={formData.from_address}
+                        onChange={handleChange}
+                        required
+                    />
+                    <button type="button" onClick={getFromLocation} className="locate-btn">
+                        📍 Pin
+                    </button>
+                </div>
 
-                <input
-                    type="text"
-                    name="to_address"
-                    placeholder="To Address *"
-                    value={formData.to_address}
-                    onChange={handleChange}
-                    required
-                />
+                {/* To Address */}
+                <div className="location-group">
+                    <input
+                        type="text"
+                        name="to_address"
+                        placeholder="To Address *"
+                        value={formData.to_address}
+                        onChange={handleChange}
+                        required
+                    />
+                    <button type="button" onClick={getToLocation} className="locate-btn">
+                        📍 Pin
+                    </button>
+                </div>
 
                 <textarea
                     name="description"
