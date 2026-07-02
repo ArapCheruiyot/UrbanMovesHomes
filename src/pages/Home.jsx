@@ -12,11 +12,12 @@ const Home = () => {
                     backgroundImage: `url(${heroImage})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    minHeight: '80vh'
                 }}
             >
                 <div className="hero-content">
-                    <h1 className="hero-title">Find Homes. Move Smart. Live Better.</h1>
+                    <h1 className="hero-title">
+                        Find Homes. <span>Move Smart.</span> Live Better.
+                    </h1>
                     <p className="hero-subtitle">
                         House Moving • Vehicle Transport • Office Relocation • Packaging • Cleaning
                     </p>
