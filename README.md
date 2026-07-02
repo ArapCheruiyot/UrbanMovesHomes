@@ -1,16 +1,36 @@
-# React + Vite
+# 🚚 Urban MoveHomes
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+**Find Homes. Move Smart. Live Better.**
 
-Currently, two official plugins are available:
+Urban MoveHomes is a modern, fully responsive website for a professional moving company based in Kenya. It showcases services such as house moving, vehicle transport, office relocation, packaging, and cleaning — with a clean, user-friendly interface and a fully functional admin dashboard.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🔗 **Live Demo:** [urbanmoveshomes.onrender.com](https://urbanmoveshomes.onrender.com)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the Oxlint configuration
+- 📱 **Fully responsive** — works on desktop, tablet, and mobile
+- 🧭 **React Router navigation** — smooth page transitions
+- 🏠 **Homepage** — hero section with call-to-action buttons
+- 📄 **About page** — company story, mission, and values
+- 📦 **Services page** — detailed service descriptions with images
+- 📞 **Quote page** — custom quote request form with location pinning
+- 📊 **Admin Dashboard** — view, filter, update status, and delete quote requests
+- 💬 **WhatsApp integration** — instant contact for customers
+- 🎨 **Custom CSS** — modular, component-specific styles
+- 🖼️ **Image optimization** — real images from the client
+- 🔥 **Firebase Firestore** — stores all quote requests in real-time
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| **Frontend** | React 19 + Vite |
+| **Routing** | React Router DOM v7 |
+| **Styling** | CSS (modular, component-specific) |
+| **Backend / Database** | Firebase Firestore (NoSQL) |
+| **Hosting** | Render (Static Site) |
+| **Version Control** | Git + GitHub |
