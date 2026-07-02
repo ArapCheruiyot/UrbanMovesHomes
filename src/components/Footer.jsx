@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <footer>
             <p>&copy; 2026 Urban MoveHomes. All rights reserved.</p>
-            <p>📞 +254114161000 | 📧 info@urbanmovehomes.co.ke</p>
+            <p>📞 +254114161000 | 📧 urbanmovehomes@gmail.com</p>
         </footer>
     );
 };
