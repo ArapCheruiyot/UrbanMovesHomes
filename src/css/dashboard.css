@@ -5,36 +5,33 @@
 .dashboard {
     max-width: 1200px;
     margin: 2rem auto;
-    padding: 0 1rem;
+    padding: 0 2rem;
 }
 
 .dashboard h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: #1a3c6e;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
-/* ========================================
-   STATS CARDS
-   ======================================== */
-
+/* Stats */
 .stats {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .stat-card {
     background-color: #f9f9f9;
-    padding: 1.2rem;
+    padding: 1.5rem;
     border-radius: 8px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .stat-number {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
     color: #1a3c6e;
     display: block;
@@ -42,17 +39,14 @@
 
 .stat-label {
     color: #666;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
 }
 
 .stat-card.pending .stat-number { color: #f4a261; }
 .stat-card.contacted .stat-number { color: #3498db; }
 .stat-card.completed .stat-number { color: #27ae60; }
 
-/* ========================================
-   FILTER BAR
-   ======================================== */
-
+/* Filter Bar */
 .filter-bar {
     display: flex;
     gap: 0.5rem;
@@ -81,10 +75,7 @@
     color: #fff;
 }
 
-/* ========================================
-   TABLE — CARD VIEW ON MOBILE
-   ======================================== */
-
+/* Table */
 .table-container {
     overflow-x: auto;
     background: #fff;
@@ -103,7 +94,7 @@ thead {
 }
 
 th, td {
-    padding: 0.8rem 1rem;
+    padding: 1rem;
     text-align: left;
     border-bottom: 1px solid #eee;
 }
@@ -179,99 +170,10 @@ td button {
     padding: 2rem;
 }
 
+/* Loading */
 .dashboard-loading {
     text-align: center;
     font-size: 1.2rem;
     color: #666;
     padding: 3rem;
-}
-
-/* ========================================
-   RESPONSIVE — STACK ON MOBILE
-   ======================================== */
-
-@media (max-width: 768px) {
-    .stats {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.8rem;
-    }
-
-    .stat-card {
-        padding: 0.8rem;
-    }
-
-    .stat-number {
-        font-size: 1.5rem;
-    }
-
-    .stat-label {
-        font-size: 0.75rem;
-    }
-
-    /* Convert table to cards on mobile */
-    table, thead, tbody, th, td, tr {
-        display: block;
-    }
-
-    thead {
-        display: none; /* Hide headers on mobile */
-    }
-
-    tr {
-        display: block;
-        margin-bottom: 1rem;
-        border: 1px solid #eee;
-        border-radius: 8px;
-        padding: 0.8rem;
-        background: #f9f9f9;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-
-    td {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.5rem 0;
-        border-bottom: 1px solid #eee;
-        text-align: right;
-        font-size: 0.85rem;
-    }
-
-    td:last-child {
-        border-bottom: none;
-    }
-
-    td::before {
-        content: attr(data-label);
-        font-weight: bold;
-        color: #1a3c6e;
-        text-align: left;
-        font-size: 0.8rem;
-    }
-
-    /* Button adjustments */
-    td button {
-        font-size: 0.7rem;
-        padding: 0.2rem 0.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .stats {
-        grid-template-columns: 1fr 1fr;
-        gap: 0.5rem;
-    }
-
-    .stat-number {
-        font-size: 1.3rem;
-    }
-
-    td {
-        font-size: 0.75rem;
-        padding: 0.4rem 0;
-    }
-
-    td::before {
-        font-size: 0.7rem;
-    }
 }
